@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Render Cost Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>Render Cost Calculator</h1>
+        <p class="app-subtitle">
+          Estimate render costs from frames, render time per frame, and OctaneBench score (Otoy).
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2 class="panel-title">Settings</h2>
+        <label class="field field-with-info" style="max-width: 200px;">
+          <span class="field-label">
+            Factor
+            <span class="info-icon" title="Cost scaling factor (e.g. 95.768752). Used in: Rendertime × Frames × (factor / OctaneBench)." aria-label="Info">ⓘ</span>
+          </span>
+          <input
+            id="factor"
+            type="number"
+            step="any"
+            inputmode="decimal"
+            value="95.768752"
+          />
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">Entries</h2>
+        <div class="table-wrapper table-wrapper-entries" id="entriesTableWrapper">
+          <table class="results-table entries-table">
+            <thead>
+              <tr>
+                <th>Frames</th>
+                <th>Rendertime (min)</th>
+                <th>OctaneBench</th>
+                <th>Cost</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              <!-- Rows added by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        <div class="actions" style="flex-basis: 100%;">
+          <button id="addRowBtn" type="button">Add row</button>
+        </div>
+        <div class="entries-total" style="flex-basis: 100%;">
+          <span class="primary-label">Total</span>
+          <span class="primary-value grand-total-value" id="grandTotal">0.00</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="calculator.js?v=2" defer></script>
+  </body>
+</html>
